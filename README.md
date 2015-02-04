@@ -2,7 +2,7 @@
 
 > [Swagger](http://swagger.io) API Documentations Viewer
 
-![./docs/duck.jpg](Doc? Duck?)
+![Doc? Duck?](./docs/duck.jpg)
 
 ### Warning! Under development
 This project is not ready for production use. It's being developed currently.
