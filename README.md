@@ -21,10 +21,10 @@ npm install swagger-docs
 If you are using Express or any other Connect based server, there is a connect middle-ware.
 
 ```js
-var swaggerDocs = require('swagger-docs');
+var SwaggerDocs = require('swagger-docs');
 var myAPISwagger = fs.readFileSync('path/to/swagger.json');
 
-app.get('/api-documentations/*', swaggerDocs(myAPISwagger));
+app.get('/api-documentations/*', SwaggerDocs.middleWare(myAPISwagger));
 ```
 
 ### Development

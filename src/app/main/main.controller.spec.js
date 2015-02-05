@@ -3,7 +3,7 @@
 describe('controllers', function(){
   var scope;
 
-  beforeEach(module('swaggerDocs'));
+  beforeEach(module('SwaggerDocs'));
 
   beforeEach(inject(function($rootScope) {
     scope = $rootScope.$new();

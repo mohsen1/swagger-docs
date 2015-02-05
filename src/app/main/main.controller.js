@@ -4,12 +4,11 @@
 class MainCtrl {
   constructor ($http) {
 
-    // get Swagger document
-    $http.get('./config.json')
-      .then((resp)=>console.log(resp.data));
+    // get configuration file
+    $http.get('./config.json').then((resp)=>console.log(resp.data));
   }
 }
 
-MainCtrl.$inject = ['$http'];
+MainCtrl.$inject = ['$scope'];
 
 export default MainCtrl;

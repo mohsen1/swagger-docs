@@ -19,7 +19,7 @@ gulp.task('partials', function () {
       quotes: true
     }))
     .pipe($.angularTemplatecache('templateCacheHtml.js', {
-      module: 'swaggerDocs'
+      module: 'SwaggerDocs'
     }))
     .pipe(gulp.dest(paths.tmp + '/partials/'));
 });
@@ -42,7 +42,11 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
     .pipe(jsFilter)
-    .pipe($.ngAnnotate())
+    .pipe($.ngAnnotate({
+      remove: true,
+      add: true,
+      single_quotes: true
+    }))
     .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
@@ -76,7 +80,11 @@ gulp.task('fonts', function () {
 });
 
 gulp.task('misc', function () {
-  return gulp.src(paths.src + '/**/*.ico')
+  return gulp.src([
+      paths.src + '/**/*.ico',
+      paths.src + 'swagger.yaml',
+      paths.src + 'config.json'
+    ])
     .pipe(gulp.dest(paths.dist + '/'));
 });
 
