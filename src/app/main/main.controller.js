@@ -9,6 +9,6 @@ class MainCtrl {
   }
 }
 
-MainCtrl.$inject = ['$scope'];
+MainCtrl.$inject = ['$http'];
 
 export default MainCtrl;
