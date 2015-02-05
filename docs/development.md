@@ -9,5 +9,5 @@ npm start
 This will open a browser with current development version of Swagger Docs
 
 
-### Configuration Swagger Docs
+### Configuring Swagger Docs
 Read [configuration documentations here](./config.md)
