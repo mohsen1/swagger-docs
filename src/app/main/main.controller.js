@@ -2,11 +2,14 @@
 /*jshint esnext: true */
 
 class MainCtrl {
-  constructor ($scope) {
-    $scope.one = 1; // TODO
+  constructor ($http) {
+
+    // get Swagger document
+    $http.get('./config.json')
+      .then((resp)=>console.log(resp.data));
   }
 }
 
-MainCtrl.$inject = ['$scope'];
+MainCtrl.$inject = ['$http'];
 
 export default MainCtrl;
