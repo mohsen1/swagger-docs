@@ -1,5 +1,22 @@
-.navbar {
-  &, & * {
-    background: #019663; // TODO
+.sd-navbar {
+  background: @main-theme-color;
+  box-shadow: 0 0 5px black;
+
+  li a {
+    color: white;
+
+    &:hover {
+      background: darken(@main-theme-color, 10%);
+    }
+  }
+
+  .sd-alpha-link {
+    color: red;
+  }
+
+  .sd-brand {
+    text-shadow: 0 2px #333;
+    color: white;
+    font-weight: bold;
   }
 }
