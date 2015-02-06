@@ -17,8 +17,7 @@ Swagger Docs can load Swagger specs dynamically. Updating your API documentation
 ##### ✔ Templates
 You can use templates in description sections or other places to have custom variables for each user. For example you can have user `access_token` in documentations.
 ##### ✔ Mobile Ready
-
-  > Documentations look as good in mobile devices.
+Documentations look as good in mobile devices.
 
 
 ### Usage
