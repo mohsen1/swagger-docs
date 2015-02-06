@@ -1,10 +1,12 @@
 {
   "name": "swagger-docs",
   "version": "0.0.0",
+  "repository": "https://github.com/mohsen1/swagger-docs",
   "scripts": {
     "test": "./node_modules/gulp/bin/gulp.js test; ./node_modules/gulp/bin/gulp.js protractor",
     "start": " ./node_modules/gulp/bin/gulp.js"
   },
+  "main": "nodejs/index.js",
   "dependencies": {},
   "devDependencies": {
     "browser-sync": "~1.7.1",
