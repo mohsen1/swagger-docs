@@ -8,6 +8,9 @@
 
 /*
  * This color is used in various places. For example background of header .
- * It should be a dark color in order to have some items visible.
+ * @theme-main-bg-color and @theme-main-color can't both be light or dark
+ * because text is not going to be readable if they were both dark or light.
 */
-@main-theme-color: rgb(111, 162, 30);
+@theme-main-bg-color: rgb(111, 162, 30);    // background color
+@theme-main-color: white;                   // text color
+

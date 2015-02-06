@@ -1,12 +1,12 @@
 .sd-navbar {
-  background: @main-theme-color;
+  background: @theme-main-bg-color;
   box-shadow: 0 0 5px black;
 
   li a {
-    color: white;
+    color: @theme-main-color;
 
     &:hover {
-      background: darken(@main-theme-color, 10%);
+      background: darken(@theme-main-bg-color, 10%);
     }
   }
 
@@ -17,8 +17,7 @@
   }
 
   .sd-brand {
-    text-shadow: 0 2px #333;
-    color: white;
-    font-weight: bold;
+    text-shadow: 0 1px darken(@theme-main-bg-color, 60%);
+    color: @theme-main-color;
   }
 }
