@@ -7,7 +7,6 @@
   "eqeqeq": true,
   "immed": true,
   "indent": 2,
-  "latedef": true,
   "newcap": true,
   "noarg": true,
   "quotmark": "single",
@@ -18,6 +17,7 @@
   "trailing": true,
   "smarttabs": true,
   "white": true,
+  "browser": true,
   "validthis": true,
   "globals": {
     "angular": false,
