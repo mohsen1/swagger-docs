@@ -1,11 +1,21 @@
-<div class="path" ng-controller="PathCtrl">
-  <header>
-    <h2>{{pathName}}</h2>
-  </header>
-  <section>
-    <div marked="swagger.paths[pathName].description"></div>
-    <div ng-repeat="(operationName, operation) in swagger.paths[pathName]">
-      <div ng-include="'app/operation/operation.html'"></div>
-    </div>
-  </section>
+<div ng-controller="PathCtrl">
+  <div class="path"
+    ng-repeat="(pathName, path) in filterPaths(swagger.paths)">
+
+    <header>
+      <h2>{{pathName}}</h2>
+    </header>
+
+    <section>
+      <!--
+        there is no path description in Swagger.
+        TODO: should we use a x-docs-description?
+      -->
+      <div marked="swagger.paths[pathName].description"></div>
+
+      <div ng-repeat="(operationName, operation) in swagger.paths[pathName]">
+        <div ng-include="'app/operation/operation.html'"></div>
+      </div>
+    </section>
+  </div>
 </div>

@@ -2,11 +2,11 @@
 /*jshint esnext: true */
 
 class SidebarCtrl {
-  constructor($scope, $rootScope) {
+  constructor($scope) {
     $scope.encodeURIComponent = window.encodeURIComponent;
   }
 }
 
-SidebarCtrl.$inject = ['$scope', '$rootScope'];
+SidebarCtrl.$inject = ['$scope'];
 
 export default SidebarCtrl;
