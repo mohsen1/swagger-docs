@@ -1,0 +1,37 @@
+.operation-theme(@color) {
+  border-color: @color;
+
+  header {
+    background-color: @color;
+  }
+}
+.operation {
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 2px;
+  margin: 20px 0;
+
+  > section {
+    padding: 10px 20px;
+  }
+
+  > header {
+    a {
+      color: white;
+      text-decoration: none;
+
+      .path-name {
+        font-family: monospace;
+      }
+    }
+    h4 {
+      padding: 10px 20px;
+      margin: 0;
+    }
+  }
+
+  &.delete { .operation-theme(red); }
+  &.get { .operation-theme(blue); }
+  &.post { .operation-theme(green); }
+  &.put { .operation-theme(gold); }
+}
