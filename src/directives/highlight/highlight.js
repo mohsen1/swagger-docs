@@ -1,7 +1,7 @@
 /*
  * This attribute directive will get an argument, when that argument is true
- * it will apply the "highlighted" class to the element and bring it to the view
- * using Element.scrollIntoViewIfNeeded() method
+ * it will apply the "swagger-docs-highlighted" class to the element and bring it to the view
+ * using Element#scrollIntoViewIfNeeded() method
  *
  * @param do {boolean} - determines if it should highlight or not
  *
@@ -10,19 +10,29 @@
 */
 
 'use strict';
+/*jshint esnext: true */
 
-function highlight() {
+function highlight($parse) {
   return {
     restrict: 'A',
     link: (scope, element, attributes)=> {
 
-      if (attributes.highlight) {
-        element.get(0).scrollIntoViewIfNeeded();
-        angular.element('*').removeClass('highlighted');
-        element.addClass('highlighted');
+      scope.$watch(attributes.highlight, apply);
+
+      apply(attributes.highlight);
+
+      function apply(newValue) {
+
+        if (newValue) {
+          angular.element('*').removeClass('swagger-docs-highlighted');
+          element.get(0).scrollIntoViewIfNeeded(true);
+          element.addClass('swagger-docs-highlighted');
+        }
       }
     }
   };
 }
+
+highlight.$inject = ['$parse'];
 
 export default highlight;

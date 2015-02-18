@@ -4,12 +4,20 @@
 class OperationCtrl {
   constructor ($rootScope, $scope, $stateParams) {
 
+    setShouldHighlight();
+
+    $rootScope.$on('$stateChangeSuccess', setShouldHighlight);
+
     /*
      * Determines if this operations should be highlighted
+     *
+     * @param operationName {string}
+     *
     */
-    $scope.shouldHighlight = (operationName)=> {
-      return $stateParams.operationName === operationName;
-    };
+    function setShouldHighlight() {
+      $scope.shouldHighlight =
+        $stateParams.operationName === $scope.operationName;
+    }
 
     /*
      * Generate a single digit int number for group of a response code
@@ -25,6 +33,6 @@ class OperationCtrl {
   }
 }
 
-OperationCtrl.$inject = ['$rootScope', '$scope', '$stateParams'];
+OperationCtrl.$inject = ['$rootScope', '$scope', '$stateParams', '$timeout'];
 
 export default OperationCtrl;

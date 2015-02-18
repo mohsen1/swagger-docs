@@ -3,6 +3,8 @@
 
 class PathCtrl {
   constructor ($rootScope, $scope, $stateParams) {
+
+    // decode UI components of a path name, it might contain invalid characters
     $scope.pathName = window.decodeURIComponent($stateParams.pathName);
 
     /*
