@@ -1,0 +1,9 @@
+<div>
+  <h4>{{operationName}}</h4>
+  <div ng-repeat="parameter in swagger.paths[pathName][operationName].parameters">
+    <h5>{{parameter.name}}</h5>
+    <p ng-if="parameter.required">Required</p>
+    <p>Located in {{parameter.in}}</p>
+    <div marked="parameter.description"></div>
+  </div>
+</div>

@@ -12,6 +12,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: 'paths/:pathName',
       templateUrl: 'app/path/path.html',
       controller: 'PathCtrl'
+    })
+    .state('home.paths.operations', {
+      url: 'paths/:pathName/:operationName',
+      templateUrl: 'app/operation/operation.html',
+      controller: 'OperationCtrl'
     });
 
   $urlRouterProvider.otherwise('/');

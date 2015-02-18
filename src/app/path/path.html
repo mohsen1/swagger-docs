@@ -1,1 +1,8 @@
-path name is {{pathName}}
+<h2>{{pathName}}</h2>
+<div marked="swagger.paths[pathName].description"></div>
+<div ng-repeat="(operationName, operation) in swagger.paths[pathName]">
+  <a ui-sref="home.paths.operations({operationName: operationName})">
+    <h3>{{operationName}}</h3>
+  </a>
+  <div ui-view></div>
+</div>

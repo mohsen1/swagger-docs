@@ -3,16 +3,9 @@
 <div class="container">
 
   <div class="row">
-    <div class="col-md-2" ng-include="'components/sidebar/sidebar.html'">
-    </div>
-    <div class="col-md-10" ui-view>
-    </div>
+    <div class="col-md-2" ng-include="'components/sidebar/sidebar.html'"></div>
+    <div class="col-md-10" ui-view></div>
   </div>
 
-  <hr>
-
-  <div class="footer">
-
-  </div>
-
+  <div ng-include="'components/footer/footer.html'"></div>
 </div>
