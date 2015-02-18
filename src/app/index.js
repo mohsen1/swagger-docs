@@ -14,7 +14,8 @@ angular.module('SwaggerDocs', [
     'ngTouch',
     'ngSanitize',
     'ui.router',
-    'ui.bootstrap'
+    'ui.bootstrap',
+    'hc.marked'
   ])
   .controller('MainCtrl', MainCtrl)
   .controller('PathCtrl', PathCtrl)
