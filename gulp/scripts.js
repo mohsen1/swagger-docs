@@ -7,7 +7,7 @@ var paths = gulp.paths;
 var $ = require('gulp-load-plugins')();
 
 gulp.task('scripts', function () {
-  return gulp.src(paths.src + '/{app,components}/**/*.js')
+  return gulp.src(paths.src + '/{app,components,directives,services}/**/*.js')
     .pipe($.jshint())
     .pipe($.jshint.reporter('jshint-stylish'))
     .pipe($['6to5']())

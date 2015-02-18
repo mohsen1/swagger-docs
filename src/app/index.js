@@ -4,9 +4,13 @@
 import MainCtrl from './main/main.controller';
 import PathCtrl from './path/path.controller';
 import OperationCtrl from './operation/operation.controller';
-import Router from './router';
+
 import NavbarCtrl from '../components/navbar/navbar.controller';
 import SidebarCtrl from '../components/sidebar/sidebar.controller';
+
+import highlight from '../directives/highlight/highlight';
+
+import Router from './router';
 
 angular.module('SwaggerDocs', [
     'ngAnimate',
@@ -22,4 +26,5 @@ angular.module('SwaggerDocs', [
   .controller('OperationCtrl', OperationCtrl)
   .controller('NavbarCtrl', NavbarCtrl)
   .controller('SidebarCtrl', SidebarCtrl)
+  .directive('highlight', highlight)
   .config(Router);
