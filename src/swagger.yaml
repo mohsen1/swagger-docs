@@ -1,171 +1,571 @@
----
-swagger: '2.0'
+swagger: "2.0"
 info:
-  version: v1
-  title: Instagram API
   description: |
-    The first version of the Instagram API is an exciting step forward towards
-    making it easier for users to have open access to their data. We created it
-    so that you can surface the amazing content Instagram users share every
-    second, in fun and innovative ways.
+    This is a sample server Petstore server.
 
-    Build something great!
+    [Learn about Swagger](http://swagger.wordnik.com) or join the IRC channel `#swagger` on irc.freenode.net.
 
-    Once you've [registered your client](http://instagram.com/developer/register/) it's easy to start requesting data from Instagram.
-    All endpoints are only accessible via https and are located at api.instagram.com. For instance:
-    you can grab the most popular photos at the moment by accessing the following URL with your client ID (replace CLIENT-ID with your own):
-    ```
-      https://api.instagram.com/v1/media/popular?client_id=CLIENT-ID
-    ```
-    You're best off using an access_token for the authenticated user for each endpoint, though many endpoints don't require it.
-    In some cases an access_token will give you more access to information, and in all cases, it means that you are operating
-    under a per-access_token limit vs. the same limit for your single client_id.
-    ## Important Note
-    The URL examples throughout this documentation include an access_token that represents YOUR account tied to a generic Instagram client.
-    **DO NOT use this access_token in production or for anything other than testing as they will change often**.
-    For your application, you should have each user go through an [authentication and authorization](http://instagram.com/developer/authentication/) flow in order to receive a valid access_token.
-    ## Limits
-    Be nice. If you're sending too many requests too quickly, we'll send back a 503 error code (server unavailable).
-    You are limited to 5000 requests per hour per access_token or client_id overall. Practically, this means you should (when possible) authenticate users so that limits are well outside the reach of a given user.
-    ## Deleting Objects
-    We do our best to have all our URLs be [RESTful](http://en.wikipedia.org/wiki/Representational_state_transfer). Every endpoint (URL) may support one of four different http verbs. GET requests fetch information about an object, POST requests create objects, PUT requests update objects, and finally DELETE requests will delete objects.
-    Since many old browsers don't support PUT or DELETE, we've made it easy to fake PUTs and DELETEs. All you have to do is do a POST with _method=PUT or _method=DELETE as a parameter and we will treat it as if you used PUT or DELETE respectively.
-    ## Structure
-    ### The Envelope
-    Every response is contained by an envelope. That is, each response has a predictable set of keys with which you can expect to interact:
-    ```json
-    {
-        "meta": {
-            "code": 200
-        },
-        "data": {
-            ...
-        },
-        "pagination": {
-            "next_url": "...",
-            "next_max_id": "13872296"
-        }
-    }
-    ```
-    #### META
-    The meta key is used to communicate extra information about the response to the developer. If all goes well, you'll only ever see a code key with value 200. However, sometimes things go wrong, and in that case you might see a response like:
-    ```json
-    {
-        "meta": {
-            "error_type": "OAuthException",
-            "code": 400,
-            "error_message": "..."
-        }
-    }
-    ```
-    #### DATA
-    The data key is the meat of the response. It may be a list or dictionary, but either way this is where you'll find the data you requested.
-    #### PAGINATION
-    Sometimes you just can't get enough. For this reason, we've provided a convenient way to access more data in any request for sequential data. Simply call the url in the next_url parameter and we'll respond with the next set of data.
-    ```json
-    {
-        ...
-        "pagination": {
-            "next_url": "https://api.instagram.com/v1/tags/puppy/media/recent?access_token=fb2e77d.47a0479900504cb3ab4a1f626d174d2d&max_id=13872296",
-            "next_max_id": "13872296"
-        }
-    }
-    ```
-    On views where pagination is present, we also support the "count" parameter. Simply set this to the number of items you'd like to receive. Note that the default values should be fine for most applications - but if you decide to increase this number there is a maximum value defined on each endpoint.
-    ### JSONP
-    If you're writing an AJAX application, and you'd like to wrap our response with a callback, all you have to do is specify a callback parameter with any API call:
-    ```
-    https://api.instagram.com/v1/tags/coffee/media/recent?access_token=fb2e77d.47a0479900504cb3ab4a1f626d174d2d&callback=callbackFunction
-    ```
-    Would respond with:
-    ```js
-    callbackFunction({
-        ...
-    });
-    ```
-  termsOfService: http://instagram.com/about/legal/terms/api
-host: api.instagram.com
-basePath: /v1
+    For this sample, you can use the api key `special-key` to test the authorization filters
+  version: "1.0.0"
+  title: Swagger Petstore
+  termsOfService: http://helloreverb.com/terms/
+  contact:
+    name: apiteam@wordnik.com
+  license:
+    name: Apache 2.0
+    url: http://www.apache.org/licenses/LICENSE-2.0.html
+host: petstore.swagger.wordnik.com
+basePath: /v2
 schemes:
-  - https
-produces:
-  - application/json
-consumes:
-  - application/json
-tags:
-  - name: Users
-  - name: Relationships
-  - name: Media
-  - name: Commnts
-  - name: Likes
-  - name: Tags
-  - name: Location
-  - name: Subscribtions
-securityDefinitions:
-  oauth:
-    type: oauth2
-    flow: implicit
-    authorizationUrl: https://instagram.com/oauth/authorize/?client_id=CLIENT-ID&redirect_uri=REDIRECT-URI&response_type=token
-    scopes:
-      basic: to read any and all data related to a user (e.g. following/followed-by lists, photos, etc.) (granted by default)
-      comments: to create or delete comments on a user’s behalf
-      relationships: to follow and unfollow users on a user’s behalf
-      likes: to like and unlike items on a user’s behalf
-  key:
-    type: apiKey
-    in: query
-    name: access_token
-security:
-  - oauth:
-    - basic
-    - comments
-    - relationships
-    - likes
+  - http
 paths:
-  /users/{user_id}:
-    parameters:
-      - name: user_id
-        in: path
-        description: The user identifier number
-        type: number
-    get:
-      security:
-        - key: []
-        - oauth:
-          - basic
+  /pets:
+    post:
       tags:
-        - Users
-      description: Get basic information about a user.
-      responses:
-        200:
-          description: The user object
+        - pet
+      summary: Add a new pet to the store
+      description: ""
+      operationId: addPet
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: Pet object that needs to be added to the store
+          required: false
           schema:
-            type: object
-            properties:
-              data:
-                $ref: '#/definitions/User'
+            $ref: "#/definitions/Pet"
+      responses:
+        "405":
+          description: Invalid input
+      security:
+        - petstore_auth:
+          - write_pets
+          - read_pets
+    put:
+      tags:
+        - pet
+      summary: Update an existing pet
+      description: ""
+      operationId: updatePet
+      consumes:
+        - application/json
+        - application/xml
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: Pet object that needs to be added to the store
+          required: false
+          schema:
+            $ref: "#/definitions/Pet"
+      responses:
+        "405":
+          description: Validation exception
+        "404":
+          description: Pet not found
+        "400":
+          description: Invalid ID supplied
+      security:
+        - petstore_auth:
+          - write_pets
+          - read_pets
+  /pets/findByStatus:
+    get:
+      tags:
+        - pet
+      summary: Finds Pets by status
+      description: Multiple status values can be provided with comma seperated strings
+      operationId: findPetsByStatus
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: query
+          name: status
+          description: Status values that need to be considered for filter
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Pet"
+        "400":
+          description: Invalid status value
+      security:
+        - petstore_auth:
+          - write_pets
+          - read_pets
+  /pets/findByTags:
+    get:
+      tags:
+        - pet
+      summary: Finds Pets by tags
+      description: Muliple tags can be provided with comma seperated strings. Use tag1, tag2, tag3 for testing.
+      operationId: findPetsByTags
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: query
+          name: tags
+          description: Tags to filter by
+          required: false
+          type: array
+          items:
+            type: string
+          collectionFormat: multi
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/Pet"
+        "400":
+          description: Invalid tag value
+      security:
+        - petstore_auth:
+          - write_pets
+          - read_pets
+  /pets/{petId}:
+    get:
+      tags:
+        - pet
+      summary: Find pet by ID
+      description: Returns a pet when ID < 10.  ID > 10 or nonintegers will simulate API error conditions
+      operationId: getPetById
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: path
+          name: petId
+          description: ID of pet that needs to be fetched
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "404":
+          description: Pet not found
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/Pet"
+        "400":
+          description: Invalid ID supplied
+      security:
+        - api_key: []
+        - petstore_auth:
+          - write_pets
+          - read_pets
+    post:
+      tags:
+        - pet
+      summary: Updates a pet in the store with form data
+      description: ""
+      operationId: updatePetWithForm
+      consumes:
+        - application/x-www-form-urlencoded
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: path
+          name: petId
+          description: ID of pet that needs to be updated
+          required: true
+          type: string
+        - in: formData
+          name: name
+          description: Updated name of the pet
+          required: true
+          type: string
+        - in: formData
+          name: status
+          description: Updated status of the pet
+          required: true
+          type: string
+      responses:
+        "405":
+          description: Invalid input
+      security:
+        - petstore_auth:
+          - write_pets
+          - read_pets
+    delete:
+      tags:
+        - pet
+      summary: Deletes a pet
+      description: ""
+      operationId: deletePet
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: header
+          name: api_key
+          description: ""
+          required: true
+          type: string
+        - in: path
+          name: petId
+          description: Pet id to delete
+          required: true
+          type: integer
+          format: int64
+      responses:
+        "400":
+          description: Invalid pet value
+      security:
+        - petstore_auth:
+          - write_pets
+          - read_pets
+  /stores/order:
+    post:
+      tags:
+        - store
+      summary: Place an order for a pet
+      description: ""
+      operationId: placeOrder
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: order placed for purchasing the pet
+          required: false
+          schema:
+            $ref: "#/definitions/Order"
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/Order"
+        "400":
+          description: Invalid Order
+  /stores/order/{orderId}:
+    get:
+      tags:
+        - store
+      summary: Find purchase order by ID
+      description: For valid response try integer IDs with value <= 5 or > 10. Other values will generated exceptions
+      operationId: getOrderById
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: path
+          name: orderId
+          description: ID of pet that needs to be fetched
+          required: true
+          type: string
+      responses:
+        "404":
+          description: Order not found
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/Order"
+        "400":
+          description: Invalid ID supplied
+    delete:
+      tags:
+        - store
+      summary: Delete purchase order by ID
+      description: For valid response try integer IDs with value < 1000. Anything above 1000 or nonintegers will generate API errors
+      operationId: deleteOrder
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: path
+          name: orderId
+          description: ID of the order that needs to be deleted
+          required: true
+          type: string
+      responses:
+        "404":
+          description: Order not found
+        "400":
+          description: Invalid ID supplied
+  /users:
+    post:
+      tags:
+        - user
+      summary: Create user
+      description: This can only be done by the logged in user.
+      operationId: createUser
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: Created user object
+          required: false
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        default:
+          description: successful operation
+  /users/createWithArray:
+    post:
+      tags:
+        - user
+      summary: Creates list of users with given input array
+      description: ""
+      operationId: createUsersWithArrayInput
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: List of user object
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/User"
+      responses:
+        default:
+          description: successful operation
+  /users/createWithList:
+    post:
+      tags:
+        - user
+      summary: Creates list of users with given input array
+      description: ""
+      operationId: createUsersWithListInput
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: body
+          name: body
+          description: List of user object
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: "#/definitions/User"
+      responses:
+        default:
+          description: successful operation
+  /users/login:
+    get:
+      tags:
+        - user
+      summary: Logs user into the system
+      description: ""
+      operationId: loginUser
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: query
+          name: username
+          description: The user name for login
+          required: false
+          type: string
+        - in: query
+          name: password
+          description: The password for login in clear text
+          required: false
+          type: string
+      responses:
+        "200":
+          description: successful operation
+          schema:
+            type: string
+        "400":
+          description: Invalid username/password supplied
+  /users/logout:
+    get:
+      tags:
+        - user
+      summary: Logs out current logged in user session
+      description: ""
+      operationId: logoutUser
+      produces:
+        - application/json
+        - application/xml
+      responses:
+        default:
+          description: successful operation
+  /users/{username}:
+    get:
+      tags:
+        - user
+      summary: Get user by user name
+      description: ""
+      operationId: getUserByName
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: path
+          name: username
+          description: The name that needs to be fetched. Use user1 for testing.
+          required: true
+          type: string
+      responses:
+        "404":
+          description: User not found
+        "200":
+          description: successful operation
+          schema:
+            $ref: "#/definitions/User"
+        "400":
+          description: Invalid username supplied
+    put:
+      tags:
+        - user
+      summary: Updated user
+      description: This can only be done by the logged in user.
+      operationId: updateUser
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: path
+          name: username
+          description: name that need to be deleted
+          required: true
+          type: string
+        - in: body
+          name: body
+          description: Updated user object
+          required: false
+          schema:
+            $ref: "#/definitions/User"
+      responses:
+        "404":
+          description: User not found
+        "400":
+          description: Invalid user supplied
+    delete:
+      tags:
+        - user
+      summary: Delete user
+      description: This can only be done by the logged in user.
+      operationId: deleteUser
+      produces:
+        - application/json
+        - application/xml
+      parameters:
+        - in: path
+          name: username
+          description: The name that needs to be deleted
+          required: true
+          type: string
+      responses:
+        "404":
+          description: User not found
+        "400":
+          description: Invalid username supplied
+securityDefinitions:
+  api_key:
+    type: apiKey
+    name: api_key
+    in: header
+  petstore_auth:
+    type: oauth2
+    authorizationUrl: http://petstore.swagger.wordnik.com/api/oauth/dialog
+    flow: implicit
+    scopes:
+      write_pets: modify pets in your account
+      read_pets: read your pets
 definitions:
   User:
-    type: object
     properties:
       id:
         type: integer
+        format: int64
       username:
         type: string
-      full_name:
+      firstName:
         type: string
-      profile_picture:
+      lastName:
         type: string
-      bio:
+      email:
         type: string
-      website:
+      password:
         type: string
-      counts:
-        type: object
-        properties:
-          media:
-            type: integer
-          follows:
-            type: integer
-          follwed_by:
-            type: integer
+      phone:
+        type: string
+      userStatus:
+        type: integer
+        format: int32
+        description: User Status
+  Category:
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  Pet:
+    required:
+      - name
+      - photoUrls
+    properties:
+      id:
+        type: integer
+        format: int64
+      category:
+        $ref: "#/definitions/Category"
+      name:
+        type: string
+        example: doggie
+      photoUrls:
+        type: array
+        items:
+          type: string
+      tags:
+        type: array
+        items:
+          $ref: "#/definitions/Tag"
+      status:
+        type: string
+        description: pet status in the store
+  Tag:
+    properties:
+      id:
+        type: integer
+        format: int64
+      name:
+        type: string
+  Order:
+    properties:
+      id:
+        type: integer
+        format: int64
+      petId:
+        type: integer
+        format: int64
+      quantity:
+        type: integer
+        format: int32
+      shipDate:
+        type: string
+        format: date-time
+      status:
+        type: string
+        description: Order Status
+      complete:
+        type: boolean

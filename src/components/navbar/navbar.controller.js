@@ -2,9 +2,8 @@
 /*jshint esnext: true */
 
 class NavbarCtrl {
-  constructor ($scope) {
-
-    $scope.date = new Date();
+  constructor($scope) {
+    $scope.time = new Date();
   }
 }
 

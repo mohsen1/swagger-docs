@@ -7,6 +7,11 @@ function Router($stateProvider, $urlRouterProvider) {
       url: '/',
       templateUrl: 'app/main/main.html',
       controller: 'MainCtrl'
+    })
+    .state('home.paths', {
+      url: 'paths/:pathName',
+      templateUrl: 'app/path/path.html',
+      controller: 'PathCtrl'
     });
 
   $urlRouterProvider.otherwise('/');
