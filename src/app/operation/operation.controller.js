@@ -3,7 +3,10 @@
 
 class OperationCtrl {
   constructor ($rootScope, $scope, $stateParams) {
-    $scope.operationName = $stateParams.operationName;
+
+    $scope.getResponseCodeGroup = (responseCode) => {
+      return Math.floor(parseInt(responseCode, 10) / 100);
+    }
   }
 }
 

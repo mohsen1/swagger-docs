@@ -5,6 +5,7 @@
     background-color: @color;
   }
 }
+
 .operation {
   border-style: solid;
   border-width: 1px;
@@ -24,14 +25,22 @@
         font-family: monospace;
       }
     }
+
     h4 {
       padding: 10px 20px;
       margin: 0;
     }
   }
 
+  // TODO: colors and all possible operations
   &.delete { .operation-theme(red); }
   &.get { .operation-theme(blue); }
   &.post { .operation-theme(green); }
   &.put { .operation-theme(gold); }
+
+  // TODO: colors and all possible codes
+  .response-code-2 { color: green; }
+  .response-code-3 { color: blue; }
+  .response-code-4 { color: gold; }
+  .response-code-5 { color: red; }
 }
