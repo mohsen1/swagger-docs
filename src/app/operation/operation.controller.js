@@ -4,19 +4,15 @@
 class OperationCtrl {
   constructor ($rootScope, $scope, $stateParams) {
 
-    setShouldHighlight();
-
-    $rootScope.$on('$stateChangeSuccess', setShouldHighlight);
-
     /*
      * Determines if this operations should be highlighted
      *
      * @param operationName {string}
      *
+     * @return {boolean} - true if this operation should be highlighted
     */
-    function setShouldHighlight() {
-      $scope.shouldHighlight =
-        $stateParams.operationName === $scope.operationName;
+    $scope.shouldHighlight = function setShouldHighlight(operationName) {
+      return $stateParams.operationName === operationName;
     }
 
     /*
