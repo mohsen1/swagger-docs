@@ -12,7 +12,7 @@
 'use strict';
 /*jshint esnext: true */
 
-function highlight() {
+function highlight($parse) {
   return {
     restrict: 'A',
     link: (scope, element, attributes)=> {
@@ -23,7 +23,11 @@ function highlight() {
 
       function apply(newValue) {
 
-        if (newValue) {
+        if ( newValue === true ||
+
+          // if the new value is expression and needs parsing, parse it
+          (angular.isString(newValue) && $parse(newValue)(scope))) {
+
           angular.element('*').removeClass('swagger-docs-highlighted');
           element.get(0).scrollIntoViewIfNeeded(true);
           element.addClass('swagger-docs-highlighted');
@@ -32,5 +36,7 @@ function highlight() {
     }
   };
 }
+
+highlight.$inject = ['$parse'];
 
 export default highlight;
