@@ -10,7 +10,7 @@
 */
 
 'use strict';
-/*jshint esnext: true */
+
 
 function highlight($parse) {
   return {

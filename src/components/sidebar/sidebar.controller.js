@@ -1,5 +1,5 @@
 'use strict';
-/*jshint esnext: true */
+
 
 class SidebarCtrl {
   constructor($scope) {

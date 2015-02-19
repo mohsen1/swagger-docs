@@ -1,5 +1,5 @@
 'use strict';
-/*jshint esnext: true */
+
 
 class PathCtrl {
   constructor ($rootScope, $scope, $stateParams) {

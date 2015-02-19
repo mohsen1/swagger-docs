@@ -1,5 +1,5 @@
 'use strict';
-/*jshint esnext: true */
+
 
 import MainCtrl from './main/main.controller';
 import PathCtrl from './path/path.controller';

@@ -1,5 +1,5 @@
 'use strict';
-/*jshint esnext: true */
+
 
 class OperationCtrl {
   constructor ($rootScope, $scope, $stateParams) {
