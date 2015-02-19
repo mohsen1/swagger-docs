@@ -45,6 +45,9 @@ gulp.task('styles', function () {
     .pipe($.inject(injectFiles, injectOptions))
     .pipe(indexFilter.restore())
     .pipe($.less())
+    .on('error', function(err){
+      console.log(err.toString());
+    })
 
   .pipe($.autoprefixer())
     .on('error', function handleError(err) {
