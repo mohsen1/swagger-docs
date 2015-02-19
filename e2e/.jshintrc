@@ -1,0 +1,9 @@
+// Extends the main jshintrc for Protractor specific globals
+{
+  "extends": "../.jshintrc",
+  "globals": {
+    "browser": false,
+    "$": false,
+    "$$": false
+  }
+}

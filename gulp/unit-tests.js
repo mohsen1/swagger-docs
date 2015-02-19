@@ -8,7 +8,7 @@ var wiredep = require('wiredep');
 
 var paths = gulp.paths;
 
-function runTests (singleRun, done) {
+function runTests (singleRun) {
   var bowerDeps = wiredep({
     directory: 'bower_components',
     exclude: ['bootstrap-sass-official'],
@@ -33,5 +33,9 @@ function runTests (singleRun, done) {
     });
 }
 
-gulp.task('test', ['browserify'], function (done) { runTests(true /* singleRun */, done) });
-gulp.task('test:auto', ['browserify'], function (done) { runTests(false /* singleRun */, done) });
+gulp.task('test', ['browserify'], function (done) {
+  runTests(true /* singleRun */, done);
+});
+gulp.task('test:auto', ['browserify'], function (done) {
+  runTests(false /* singleRun */, done);
+});

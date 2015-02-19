@@ -1,6 +1,10 @@
 'use strict';
 
+var uitls = require('./uitls.js');
+
 describe('The main view', function() {
+
+  afterEach(uitls.checkLogs);
 
   describe('goes to homepage', function(){
     it('navigates to http://localhost:3000/', function(){

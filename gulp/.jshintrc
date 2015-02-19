@@ -1,0 +1,5 @@
+// Extends the main jshintrc for Protractor specific globals
+{
+  "extends": "../.jshintrc",
+  "node": true
+}

@@ -44,7 +44,7 @@ gulp.task('styles', function () {
     .pipe(indexFilter)
     .pipe($.inject(injectFiles, injectOptions))
     .pipe(indexFilter.restore())
-    .pipe($.less())
+    .pipe($.less(lessOptions))
     .on('error', function(err){
       console.log(err.toString());
     })

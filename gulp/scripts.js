@@ -16,7 +16,7 @@ gulp.task('scripts', function () {
       this.emit('end');
     })
     .pipe(gulp.dest(paths.tmp + '/6to5'))
-    .pipe($.size())
+    .pipe($.size());
 });
 
 gulp.task('browserify', ['scripts'], function () {

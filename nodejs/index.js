@@ -13,8 +13,9 @@ module.exports = {
 
     return function (req, res) {
 
+      console.log(specs, req, res);
       // TODO
       throw new Error('not yet implemented.');
-    }
+    };
   }
 };

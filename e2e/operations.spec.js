@@ -2,7 +2,7 @@
 
 // var utils = require('./utils');
 
-describe('paths', function() {
+describe('operations', function() {
 
   // utils.goHome();
 

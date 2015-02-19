@@ -37,6 +37,7 @@ gulp.task('html', ['inject', 'partials'], function () {
   var cssFilter = $.filter('**/*.css');
   var assets;
 
+  /* jshint camelcase: false */
   return gulp.src(paths.tmp + '/serve/*.html')
     .pipe($.inject(partialsInjectFile, partialsInjectOptions))
     .pipe(assets = $.useref.assets())
@@ -45,6 +46,7 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe($.ngAnnotate({
       remove: true,
       add: true,
+
       single_quotes: true
     }))
 

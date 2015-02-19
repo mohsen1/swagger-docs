@@ -23,7 +23,7 @@ exports.config = {
     defaultTimeoutInterval: 30000
   },
 
-  framework: "jasmine2",
+  framework: 'jasmine2',
 
   onPrepare: function() {
     // The require statement must be down here, since jasmine-reporters
@@ -31,6 +31,7 @@ exports.config = {
     // this until inside the onPrepare function.
     var TapReporter = require('jasmine-reporters').TapReporter;
 
+    /* global jasmine */
     jasmine.getEnv().addReporter(new TapReporter());
   }
 };

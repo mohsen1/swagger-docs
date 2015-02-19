@@ -9,6 +9,7 @@ var browserSync = require('browser-sync');
 var paths = gulp.paths;
 
 // Downloads the selenium webdriver
+/* jshint camelcase: false */
 gulp.task('webdriver-update', $.protractor.webdriver_update);
 
 gulp.task('webdriver-standalone', $.protractor.webdriver_standalone);
