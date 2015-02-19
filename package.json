@@ -4,7 +4,8 @@
   "repository": "https://github.com/mohsen1/swagger-docs",
   "scripts": {
     "test": "./node_modules/gulp/bin/gulp.js test; ./node_modules/gulp/bin/gulp.js protractor",
-    "start": " ./node_modules/gulp/bin/gulp.js"
+    "start": " ./node_modules/gulp/bin/gulp.js",
+    "prepublish": "./node_modules/gulp/bin/gulp.js"
   },
   "main": "nodejs/index.js",
   "dependencies": {},
