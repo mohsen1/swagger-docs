@@ -1,10 +1,12 @@
 'use strict';
 
-// var utils = require('./utils');
+var helpers = require('./helpers');
 
 describe('operations', function() {
 
-  // utils.goHome();
+  helpers.goHome();
+
+  afterEach(helpers.checkLogs);
 
   describe('navigation', function() {
     describe('when clicking on "All Paths"', function(){

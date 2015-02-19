@@ -1,4 +1,4 @@
-// Extends the main jshintrc for Protractor specific globals
+// Extends the main jshintrc for Gulp
 {
   "extends": "../.jshintrc",
   "node": true

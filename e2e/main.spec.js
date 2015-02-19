@@ -1,17 +1,12 @@
 'use strict';
 
-var uitls = require('./uitls.js');
+var helpers = require('./helpers.js');
 
 describe('The main view', function() {
 
-  afterEach(uitls.checkLogs);
+  afterEach(helpers.checkLogs);
 
-  describe('goes to homepage', function(){
-    it('navigates to http://localhost:3000/', function(){
-      browser.get('http://localhost:3000/');
-      expect(browser.getCurrentUrl()).toContain('localhost:3000');
-    });
-  });
+  helpers.goHome();
 
   describe('title', function(){
     it('should have "Swagger Petstore" title', function() {
