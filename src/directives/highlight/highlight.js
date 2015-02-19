@@ -12,7 +12,7 @@
 'use strict';
 /*jshint esnext: true */
 
-function highlight($parse) {
+function highlight() {
   return {
     restrict: 'A',
     link: (scope, element, attributes)=> {
@@ -32,7 +32,5 @@ function highlight($parse) {
     }
   };
 }
-
-highlight.$inject = ['$parse'];
 
 export default highlight;

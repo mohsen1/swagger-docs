@@ -5,7 +5,7 @@
 ![Doc? Duck?](./docs/duck.jpg)
 
 ### Warning! Under development
-This project is not ready for production use. It's being developed currently.
+This project is under development and not ready for production use.
 
 ### Features
 ##### ✔ Customizable
@@ -39,6 +39,9 @@ var myAPISwagger = fs.readFileSync('path/to/swagger.json');
 
 app.get('/api-documentations/*', SwaggerDocs.middleWare(myAPISwagger));
 ```
+
+### Configuring Swagger Docs
+Read [Configuration Documentations here](./docs/config.md)
 
 ### Development
 Read [Development Documentations here](./docs/development.md).

@@ -7,11 +7,14 @@ module.exports = function(config) {
 
     frameworks: ['jasmine'],
 
-    browsers : ['PhantomJS'],
+    browsers : [
+      process.env.TRAVIS ? 'Firefox' : 'Chrome'
+    ],
 
     plugins : [
-        'karma-phantomjs-launcher',
-        'karma-jasmine'
+      'karma-jasmine',
+      'karma-chrome-launcher',
+      'karma-firefox-launcher'
     ]
   });
 };

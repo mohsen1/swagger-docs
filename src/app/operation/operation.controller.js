@@ -13,7 +13,7 @@ class OperationCtrl {
     */
     $scope.shouldHighlight = function setShouldHighlight(operationName) {
       return $stateParams.operationName === operationName;
-    }
+    };
 
     /*
      * Generate a single digit int number for group of a response code
