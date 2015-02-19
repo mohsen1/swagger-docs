@@ -2,8 +2,11 @@
 
 describe('The main view', function() {
 
-  beforeEach(function() {
-    browser.get('http://localhost:3000/');
+  describe('goes to homepage', function(){
+    it('navigates to http://localhost:3000/', function(){
+      browser.get('http://localhost:3000/');
+      expect(browser.getCurrentUrl()).toContain('localhost:3000');
+    });
   });
 
   describe('title', function(){
@@ -15,7 +18,6 @@ describe('The main view', function() {
       expect($('.sd-navbar').getText()).toContain('Swagger Petstore');
     });
   });
-
 
   describe('info', function(){
     it('should render the title of Swagger document in a H1', function(){
@@ -42,6 +44,26 @@ describe('The main view', function() {
 
     it('should render a link element in description', function(){
       expect($('.info .description a').isPresent()).toBe(true);
+    });
+  });
+
+  describe('paths', function(){
+    it('should render all paths', function(){
+      expect($('.sidebar .all-paths').getText()).toContain('All Paths');
+    });
+
+    it('"All Paths" should be a link', function(){
+      expect($('.sidebar a.all-paths').isPresent()).toBe(true);
+    });
+
+    it('should render all other paths under "App Paths"', function() {
+      expect($$('.sidebar .path-name-link').count()).toBe(12);
+    });
+  });
+
+  describe('footer', function(){
+    it('should render "Powered by Swagger"', function(){
+      expect($('.main-footer').getText()).toContain('Powered by Swagger');
     });
   });
 });

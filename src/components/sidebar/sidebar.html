@@ -1,10 +1,10 @@
-<div ng-controller="SidebarCtrl">
-  <a ui-sref="home.paths({pathName: null})">
+<div ng-controller="SidebarCtrl" class="sidebar">
+  <a class="all-paths" ui-sref="home.paths({pathName: null})">
     <h5>All Paths</h5>
   </a>
   <div>
     <div ng-repeat="(pathName, path) in swagger.paths">
-      <a ui-sref="home.paths({pathName: encodeURIComponent(pathName)})">
+      <a class="path-name-link" ui-sref="home.paths({pathName: encodeURIComponent(pathName)})">
         <h5>{{pathName}}</h5>
       </a>
     </div>
