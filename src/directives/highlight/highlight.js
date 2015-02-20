@@ -12,7 +12,7 @@
 'use strict';
 
 
-function highlight($parse) {
+export default function highlight($parse) {
   return {
     restrict: 'A',
     link: (scope, element, attributes)=> {
@@ -36,7 +36,3 @@ function highlight($parse) {
     }
   };
 }
-
-highlight.$inject = ['$parse'];
-
-export default highlight;
