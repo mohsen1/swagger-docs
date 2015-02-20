@@ -1,7 +1,7 @@
 'use strict';
 
 
-export default function PathCtrl($rootScope, $scope, $stateParams) {
+SwaggerDocs.controller('PathCtrl', function PathCtrl($rootScope, $scope, $stateParams) {
 
   // decode UI components of a path name, it might contain invalid characters
   $scope.pathName = window.decodeURIComponent($stateParams.pathName);
@@ -21,4 +21,4 @@ export default function PathCtrl($rootScope, $scope, $stateParams) {
       return paths;
     }
   };
-}
+});

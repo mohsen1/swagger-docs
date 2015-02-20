@@ -1,7 +1,7 @@
 'use strict';
 
 
-export default function OperationCtrl($rootScope, $scope, $stateParams) {
+SwaggerDocs.controller('OperationCtrl', function OperationCtrl($rootScope, $scope, $stateParams) {
 
   /*
    * Determines if this operations should be highlighted
@@ -25,4 +25,4 @@ export default function OperationCtrl($rootScope, $scope, $stateParams) {
   $scope.getResponseCodeGroup = (responseCode) => {
     return Math.floor(parseInt(responseCode, 10) / 100);
   };
-}
+});

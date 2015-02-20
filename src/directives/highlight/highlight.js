@@ -1,7 +1,7 @@
 /*
  * This attribute directive will get an argument, when that argument is true
- * it will apply the "swagger-docs-highlighted" class to the element and bring it to the view
- * using Element#scrollIntoViewIfNeeded() method
+ * it will apply the "swagger-docs-highlighted" class to the element and bring
+ * it to the view using Element#scrollIntoViewIfNeeded() method
  *
  * @param do {boolean} - determines if it should highlight or not
  *
@@ -12,7 +12,7 @@
 'use strict';
 
 
-export default function highlight($parse) {
+SwaggerDocs.directive('highlight', function highlight($parse) {
   return {
     restrict: 'A',
     link: (scope, element, attributes)=> {
@@ -35,4 +35,4 @@ export default function highlight($parse) {
       }
     }
   };
-}
+});

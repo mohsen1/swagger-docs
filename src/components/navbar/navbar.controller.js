@@ -1,6 +1,5 @@
 'use strict';
 
-
-export default function NavbarCtrl($scope) {
+SwaggerDocs.controller('NavbarCtrl', function NavbarCtrl($scope) {
   $scope.time = new Date();
-}
+});

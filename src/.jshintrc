@@ -1,4 +1,7 @@
 {
   "extends": "../.jshintrc",
-  "esnext": true
+  "esnext": true,
+  "globals": {
+    "SwaggerDocs": false
+  }
 }

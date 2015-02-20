@@ -1,6 +1,6 @@
 'use strict';
 
-export default function MainCtrl ($http, $rootScope) {
+SwaggerDocs.controller('MainCtrl', function MainCtrl ($http, $rootScope) {
 
   // Initialize rendering of the app by assigning $rootScope variables
   getConfigs();
@@ -89,4 +89,4 @@ export default function MainCtrl ($http, $rootScope) {
   function assignSwaggerSpecs(swagger) {
     $rootScope.swagger = swagger;
   }
-}
+});

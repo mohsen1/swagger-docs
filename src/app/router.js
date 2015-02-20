@@ -1,6 +1,6 @@
 'use strict';
 
-function Router($stateProvider, $urlRouterProvider) {
+SwaggerDocs.config(function Router($stateProvider, $urlRouterProvider) {
 
   $stateProvider
     .state('home', {
@@ -20,5 +20,4 @@ function Router($stateProvider, $urlRouterProvider) {
     });
 
   $urlRouterProvider.otherwise('/');
-}
-export default Router;
+});
