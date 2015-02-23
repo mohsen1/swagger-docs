@@ -11,7 +11,10 @@ SwaggerDocs.controller('OperationCtrl', function OperationCtrl($rootScope, $scop
    * @return {boolean} - true if this operation should be highlighted
   */
   $scope.shouldHighlight = function setShouldHighlight(operationName) {
-    return $stateParams.operationName === operationName;
+
+    // If there is a prameterName in state, let it highlight the parameter
+    return !$stateParams.parameterName &&
+      $stateParams.operationName === operationName;
   };
 
   /*

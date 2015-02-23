@@ -1,4 +1,4 @@
-<div class="parameter" ng-controller="ParameterCtrl">
+<div class="parameter" ng-controller="ParameterCtrl" highlight="shouldHighlight(parameter.name, operationName)">
   <a class="operation-name" ui-sref="home.paths.operations.parameter({
     parameterName: parameter.name,
     pathName: pathName,
