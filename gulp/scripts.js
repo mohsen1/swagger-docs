@@ -20,7 +20,7 @@ gulp.task('scripts', function () {
 });
 
 gulp.task('browserify', ['scripts'], function () {
-  return gulp.src(paths.tmp + '/6to5/app/index.js', { read: false })
+  return gulp.src(paths.tmp + '/6to5/{app,components,directives,services}/**/*.js', { read: false })
     .pipe($.browserify())
     .on('error', function handleError(err) {
       console.error(err.toString());
