@@ -1,0 +1,14 @@
+<div class="parameter" ng-controller="ParameterCtrl">
+  <a class="operation-name" ui-sref="home.paths.operations.parameter({
+    parameterName: parameter.name,
+    pathName: pathName,
+    operationName: operationName
+  })">
+    <h5 >
+      <code>{{parameter.name}}</code>
+      <span class="required-label label label-danger" ng-if="parameter.required">Required</span>
+    </h5>
+  </a>
+  <p>Located in <b>{{parameter.in}}</b></p>
+  <div marked="parameter.description"></div>
+</div>

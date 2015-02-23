@@ -2,22 +2,34 @@
 
 SwaggerDocs.config(function Router($stateProvider, $urlRouterProvider) {
 
+  /*
+
+   Routing Hierarchy
+   =================
+
+   home
+   ├── info
+   ├── models (TODO)
+   └── paths
+       └── operations
+           ├── parameters
+           ├── responses
+           └── try (TODO)
+  */
+
   $stateProvider
     .state('home', {
       url: '/',
-      templateUrl: 'app/main/main.html',
-      controller: 'MainCtrl'
+      controller: 'MainCtrl',
+      templateUrl: 'app/main/main.html'
     })
     .state('home.paths', {
       url: 'paths/:pathName',
-      templateUrl: 'app/path/path.html',
-      controller: 'PathCtrl'
+      controller: 'PathCtrl',
+      templateUrl: 'app/path/path.html'
     })
-    .state('home.paths.operations', {
-      url: 'paths/:pathName/:operationName',
-      templateUrl: 'app/operation/operation.html',
-      controller: 'OperationCtrl'
-    });
+      .state('home.paths.operations', {url: '/:operationName'})
+      .state('home.paths.operations.parameter', {url: '/:parameterName'});
 
   $urlRouterProvider.otherwise('/');
 });
