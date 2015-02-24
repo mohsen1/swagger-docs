@@ -7,5 +7,6 @@ window.SwaggerDocs = angular.module('SwaggerDocs', [
     'ngSanitize',
     'ui.router',
     'ui.bootstrap',
-    'hc.marked'
+    'hc.marked',
+    'mohsen1.json-schema-view'
 ]);

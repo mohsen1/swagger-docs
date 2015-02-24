@@ -16,4 +16,15 @@ SwaggerDocs.controller('ResponseCtrl', function ResponseCtrl($rootScope, $scope,
       $stateParams.operationName ===operationName &&
       $stateParams.responseCode === responseCode;
   };
+
+  /*
+   * Get schema of a response
+   *
+   * @param response {object}
+   *
+   * @returns {object} - the schema
+  */
+  $scope.getSchema = function(response) {
+    return response.schema;
+  };
 });

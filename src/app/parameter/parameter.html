@@ -4,11 +4,14 @@
     pathName: pathName,
     operationName: operationName
   })">
-    <h5 >
+    <h5>
       <code>{{parameter.name}}</code>
       <span class="label label-danger" ng-if="parameter.required">Required</span>
+      <b class="in">{{parameter.in}} parameter</b>
     </h5>
+
+    <h6>Schema</h6>
+    <json-schema-view schema="getSchema(parameter)" open="1"></json-schema-view>
   </a>
-  <p>Located in <b>{{parameter.in}}</b></p>
   <div marked="parameter.description"></div>
 </div>

@@ -17,4 +17,21 @@ SwaggerDocs.controller('ParameterCtrl', function ParameterCtrl($rootScope, $scop
       $stateParams.parameterName === parameterName &&
       $stateParams.operationName === operationName;
   };
+
+  /*
+   * Gets schema of a parameter.
+   * A parameter can have a type of schema property, if type is presents, the schema
+   * itself is the schema
+   *
+   * @param parameter {object} - the parameter object
+   *
+   * @returns {object} - the schema to show
+  */
+  $scope.getSchema = function(parameter) {
+    if (parameter.type) {
+      return parameter;
+    }
+
+    return parameter.schema;
+  };
 });
