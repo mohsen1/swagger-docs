@@ -12,7 +12,7 @@
       <div ng-include="'app/parameter/parameter.html'"></div>
     </div>
 
-    <h4 ng-if="swagger.paths[pathName][operationName].responses.length">Responses</h4>
+    <h4 ng-if="swagger.paths[pathName][operationName].responses">Responses</h4>
     <div ng-repeat="(responseCode, response) in swagger.paths[pathName][operationName].responses">
       <div ng-include="'app/response/response.html'"></div>
     </div>
