@@ -10,11 +10,15 @@ SwaggerDocs.config(function Router($stateProvider, $urlRouterProvider) {
    home
    ├── info
    ├── models (TODO)
+   ├── tags (TODO)
+   │    └── tag/operations
+   │
    └── paths
-       └── operations
-           ├── parameters
-           ├── responses
-           └── try (TODO)
+       └── path
+           └── operations
+               ├── parameters/parameter
+               ├── responses/response
+               └── try (TODO)
   */
 
   $stateProvider
