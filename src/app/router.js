@@ -29,7 +29,8 @@ SwaggerDocs.config(function Router($stateProvider, $urlRouterProvider) {
       templateUrl: 'app/path/path.html'
     })
       .state('home.paths.operations', {url: '/:operationName'})
-      .state('home.paths.operations.parameter', {url: '/:parameterName'});
+      .state('home.paths.operations.parameters', {url: '/parameters/:parameterName'})
+      .state('home.paths.operations.responses', {url: '/responses/:responseCode'});
 
   $urlRouterProvider.otherwise('/');
 });

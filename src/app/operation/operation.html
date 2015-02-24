@@ -6,14 +6,15 @@
   </header>
   <section>
     <div marked="swagger.paths[pathName][operationName].description"></div>
+
     <h4 ng-if="swagger.paths[pathName][operationName].parameters.length">Parameters</h4>
     <div ng-repeat="parameter in swagger.paths[pathName][operationName].parameters">
       <div ng-include="'app/parameter/parameter.html'"></div>
     </div>
+
     <h4 ng-if="swagger.paths[pathName][operationName].responses.length">Responses</h4>
     <div ng-repeat="(responseCode, response) in swagger.paths[pathName][operationName].responses">
-      <h5 class="response-code-{{getResponseCodeGroup(responseCode) }}">{{responseCode}}</h5>
-      <p marked="response.description"></p>
+      <div ng-include="'app/response/response.html'"></div>
     </div>
   </section>
 </div>

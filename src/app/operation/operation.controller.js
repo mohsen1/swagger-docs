@@ -14,6 +14,11 @@ SwaggerDocs.controller('OperationCtrl', function OperationCtrl($rootScope, $scop
 
     // If there is a prameterName in state, let it highlight the parameter
     return !$stateParams.parameterName &&
+
+    // if there is a responseCode in state, let it highlight the response
+      !$stateParams.responseCode &&
+
+    // if state's operationName equals operationName argument
       $stateParams.operationName === operationName;
   };
 

@@ -1,0 +1,10 @@
+<div class="response" ng-controller="ResponseCtrl" highlight="shouldHighlight(responseCode)">
+  <a class="response-code" ui-sref="home.paths.operations.responses({
+    responseCode: responseCode,
+    operationName: operationName,
+    pathName: pathName
+  })">
+    <h5 class="response-code-{{getResponseCodeGroup(responseCode) }}">{{responseCode}}</h5>
+  </a>
+  <p marked="response.description"></p>
+</div>
