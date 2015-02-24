@@ -1,6 +1,6 @@
 'use strict';
 
-SwaggerDocs.controller('MainCtrl', function MainCtrl ($http, $rootScope) {
+SwaggerDocs.controller('MainCtrl', function MainCtrl ($http, $rootScope, Digest) {
 
   // Initialize rendering of the app by assigning $rootScope variables
   getConfigs();
@@ -87,6 +87,6 @@ SwaggerDocs.controller('MainCtrl', function MainCtrl ($http, $rootScope) {
    * @param swagger {object} - the Swagger specs object
   */
   function assignSwaggerSpecs(swagger) {
-    $rootScope.swagger = swagger;
+    $rootScope.swagger = Digest.process(swagger);
   }
 });
