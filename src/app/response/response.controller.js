@@ -10,9 +10,10 @@ SwaggerDocs.controller('ResponseCtrl', function ResponseCtrl($rootScope, $scope,
    *
    * @return {boolean} - true if this operation should be highlighted
   */
-  $scope.shouldHighlight = function setShouldHighlight(responseCode) {
+  $scope.shouldHighlight = function setShouldHighlight(responseCode, operationName) {
 
     return $stateParams.responseCode &&
+      $stateParams.operationName ===operationName &&
       $stateParams.responseCode === responseCode;
   };
 });
