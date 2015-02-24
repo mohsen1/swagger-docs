@@ -1,4 +1,4 @@
-  .operation-theme(@color) {
+.operation-theme(@color) {
   border-color: @color;
 
   header {
@@ -41,10 +41,4 @@
   &.delete  {.operation-theme(@theme-op-delete); }
   &.trace   {.operation-theme(@theme-op-trace); }
   &.connect {.operation-theme(@theme-op-connect); }
-
-  // TODO: colors and all possible codes
-  .response-code-2 { color: green; }
-  .response-code-3 { color: blue; }
-  .response-code-4 { color: gold; }
-  .response-code-5 { color: red; }
 }
