@@ -3,7 +3,9 @@
     ng-repeat="(pathName, path) in filterPaths(swagger.paths)">
 
     <header>
-      <h2>{{pathName}}</h2>
+      <a ui-sref="home.paths({pathName: pathName})">
+        <h2>{{pathName}}</h2>
+      </a>
     </header>
 
     <section>
