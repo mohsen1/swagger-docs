@@ -9,9 +9,8 @@
       <span class="label label-danger" ng-if="parameter.required">Required</span>
       <b class="in">{{parameter.in}} parameter</b>
     </h5>
-
-    <h6>Schema</h6>
-    <json-schema-view schema="getSchema(parameter)" open="1"></json-schema-view>
   </a>
+
+  <json-schema-view schema="getSchema(parameter)" open="1"></json-schema-view>
   <div marked="parameter.description"></div>
 </div>

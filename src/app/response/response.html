@@ -7,6 +7,16 @@
     <h5 class="response-code-{{getResponseCodeGroup(responseCode)}}xx">{{responseCode}}</h5>
   </a>
   <p marked="response.description"></p>
+
   <h6>Schema</h6>
   <json-schema-view schema="getSchema(response)" open="1"></json-schema-view>
+
+  <h6 ng-if="response.headers">Header</h6>
+    <div ng-repeat="(headerName, header) in response.headers">
+      <p>
+        <b>{{headerName}}</b>
+        <span>({{header.type}})</span>
+      </p>
+      <div marked="header.description"></div>
+    </div>
 </div>
