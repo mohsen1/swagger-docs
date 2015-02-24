@@ -7,10 +7,26 @@
 
 
 /*
- * This color is used in various places. For example background of header .
- * @theme-main-bg-color and @theme-main-color can't both be light or dark
+ * This color is used in header.
+ * @theme-header-bg-color and @theme-header-color can't both be light or dark
  * because text is not going to be readable if they were both dark or light.
 */
-@theme-main-bg-color: rgb(111, 162, 30);    // background color
-@theme-main-color: white;                   // text color
+@theme-header-bg-color: rgb(111, 162, 30);    // background color
+@theme-header-color: white;                   // text color
 
+
+
+/*
+ * Operation colors
+ * Each operation uses it's theme color for header and border
+ *
+*/
+@theme-op-options: #529691;
+@theme-op-get:     #2B2BA6;
+@theme-op-head:    #F4A109;
+@theme-op-post:    #0B790B;;
+@theme-op-put:     #836A0D;
+@theme-op-patch:   #23D793;
+@theme-op-delete:  #A91111;
+@theme-op-trace:   #383838;
+@theme-op-connect: #7C9BA5;

@@ -4,7 +4,7 @@
 SwaggerDocs.controller('ResponseCtrl', function ResponseCtrl($rootScope, $scope, $stateParams) {
 
   /*
-   * Determines if this operations should be highlighted
+   * Determines if this response should be highlighted
    *
    * @param responseCode {string}
    *

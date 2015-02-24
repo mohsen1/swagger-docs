@@ -32,11 +32,15 @@
     }
   }
 
-  // TODO: colors and all possible operations
-  &.delete { .operation-theme(red); }
-  &.get { .operation-theme(blue); }
-  &.post { .operation-theme(green); }
-  &.put { .operation-theme(gold); }
+  &.options {.operation-theme(@theme-op-options); }
+  &.get     {.operation-theme(@theme-op-get); }
+  &.head    {.operation-theme(@theme-op-head); }
+  &.post    {.operation-theme(@theme-op-post); }
+  &.put     {.operation-theme(@theme-op-put); }
+  &.patch   {.operation-theme(@theme-op-patch); }
+  &.delete  {.operation-theme(@theme-op-delete); }
+  &.trace   {.operation-theme(@theme-op-trace); }
+  &.connect {.operation-theme(@theme-op-connect); }
 
   // TODO: colors and all possible codes
   .response-code-2 { color: green; }
