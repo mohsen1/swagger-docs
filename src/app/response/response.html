@@ -8,8 +8,8 @@
   </a>
   <p marked="response.description"></p>
 
-  <h6>Schema</h6>
-  <json-schema-view schema="getSchema(response)" open="1"></json-schema-view>
+  <h6 ng-if="getSchema(response)">Schema</h6>
+  <json-schema-view ng-if="getSchema(response)" schema="getSchema(response)" open="1"></json-schema-view>
 
   <h6 ng-if="response.headers">Header</h6>
     <div ng-repeat="(headerName, header) in response.headers">
