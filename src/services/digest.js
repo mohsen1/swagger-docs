@@ -11,12 +11,13 @@ SwaggerDocs.service('Digest', function highlight() {
    * Process Swagger document.
    *
    * @param swagger {object} - A Swagger document object representation
+   * @param callback {function} - Will get resolved with Swagger document object
    *
-   * @returns {object} - Swagger document object representation
   */
-  this.process = function(swagger) {
+  this.process = (swagger, callback)=> {
 
-    // TODO
-    return swagger;
+    const resolve = window.JsonRefs.resolveRefs;
+
+    resolve(swagger, callback);
   };
 });

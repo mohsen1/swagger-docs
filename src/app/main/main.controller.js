@@ -87,6 +87,14 @@ SwaggerDocs.controller('MainCtrl', function MainCtrl ($http, $rootScope, Digest)
    * @param swagger {object} - the Swagger specs object
   */
   function assignSwaggerSpecs(swagger) {
-    $rootScope.swagger = Digest.process(swagger);
+    Digest.process(swagger, (err, resolved)=> {
+
+      // TODO: handle error
+      if (err) {
+        return console.error(err);
+      }
+
+      $rootScope.swagger = resolved;
+    });
   }
 });
