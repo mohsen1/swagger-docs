@@ -6,11 +6,11 @@
   })">
     <h5>
       <code>{{parameter.name}}</code>
-      <span class="label label-danger" ng-if="parameter.required">Required</span>
-      <b class="in">{{parameter.in}} parameter</b>
     </h5>
+    <span class="label label-danger" ng-if="parameter.required">Required</span>
+    <b class="in">{{parameter.in}} parameter</b>
   </a>
 
   <json-schema-view schema="getSchema(parameter)" open="-1"></json-schema-view>
-  <div marked="parameter.description"></div>
+  <div class="description" marked="parameter.description"></div>
 </div>
