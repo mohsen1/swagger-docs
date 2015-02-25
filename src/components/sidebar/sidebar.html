@@ -11,5 +11,5 @@
   </a>
 
   <a>All Tags</a>
-  <a href="" class="tag" ng-repeat="tag in swagger.tags">{{tag.name}}</a>
+  <a href="" class="tag tag-{{$index + 1}}" ng-repeat="tag in swagger.tags track by $index">{{tag.name}}</a>
 </div>
