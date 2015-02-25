@@ -5,6 +5,9 @@
     </a>
   </header>
   <section>
+    <div class="tags">
+      <a ng-repeat="tag in swagger.paths[pathName][operationName].tags" class="tag">{{tag}}</a>
+    </div>
     <div marked="swagger.paths[pathName][operationName].description"></div>
 
     <h4 ng-if="swagger.paths[pathName][operationName].parameters.length">Parameters</h4>
