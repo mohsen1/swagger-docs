@@ -10,6 +10,12 @@
     <h5>{{pathName}}</h5>
   </a>
 
-  <a>All Tags</a>
-  <a href="" class="tag tag-{{$index + 1}}" ng-repeat="tag in swagger.tags track by $index">{{tag.name}}</a>
+  <a ui-sref="home.tags">All Tags</a>
+  <a
+    ui-sref="home.tags({tagName: tag.name})"
+    class="tag tag-{{$index + 1}}"
+    ng-repeat="tag in swagger.tags track by $index"
+  >
+    {{tag.name}}
+  </a>
 </div>

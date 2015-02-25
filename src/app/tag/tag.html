@@ -1,0 +1,18 @@
+<div>
+  <div ng-repeat="tag in swagger.tags" class="tag-group">
+    <header>
+      <h1>{{tag.name}}</h1>
+    </header>
+    <section>
+      <div
+        ng-repeat="operationProps in getOperationsForTag(tag.name, swagger)"
+        ng-include ="'app/operation/operation.html'"
+        onload="
+          operationName = operationProps.operationName;
+          pathName = operationPropes.pathName;
+        "
+      >
+      </div>
+    </section>
+  </div>
+</div>

@@ -34,7 +34,13 @@ SwaggerDocs.config(function Router($stateProvider, $urlRouterProvider) {
     })
       .state('home.paths.operations', {url: '/:operationName'})
       .state('home.paths.operations.parameters', {url: '/parameters/:parameterName'})
-      .state('home.paths.operations.responses', {url: '/responses/:responseCode'});
+      .state('home.paths.operations.responses', {url: '/responses/:responseCode'})
+
+    .state('home.tags', {
+      url: 'tags/:tagName',
+      controller: 'TagCtrl',
+      templateUrl: 'app/tag/tag.html'
+    });
 
   $urlRouterProvider.otherwise('/');
 });
