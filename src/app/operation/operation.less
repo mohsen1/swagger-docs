@@ -2,7 +2,12 @@
   border-color: @color;
 
   header {
-    background-color: @color;
+    background: lighten(@color, 20%);
+
+    a {
+      background-color: @color;
+      display: inline-block;
+    }
   }
 
   >section >h4 {
