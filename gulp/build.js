@@ -43,17 +43,8 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
     .pipe(jsFilter)
-    .pipe($.ngAnnotate({
-      remove: true,
-      add: true,
-
-      single_quotes: true
-    }))
-
-    // Uglify is disabled because ngAnnotate is not working.
-    // TODO: Fix me
-    //.pipe($.uglify({preserveComments: $.uglifySaveLicense}))
-
+    .pipe($.ngAnnotate({remove: true, add: true, single_quotes: true}))
+    .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.replace('../bootstrap/fonts', 'fonts'))
