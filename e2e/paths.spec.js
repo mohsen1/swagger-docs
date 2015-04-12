@@ -37,5 +37,13 @@ describe('paths', function() {
         expect($$('.path').count()).toBe(1);
       });
     });
+
+    describe('when typing "pet" in path filter', function(){
+      it('filter down paths to show only paths that have word "pet" in them', function(){
+        $('.side-bar .filter input').sendKeys('pet');
+
+        expect($$('.sidebar .path-name-link'.count())).toBe(5);
+      });
+    });
   });
 });
