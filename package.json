@@ -3,10 +3,11 @@
   "version": "0.0.0",
   "repository": "https://github.com/mohsen1/swagger-docs",
   "scripts": {
-    "test": "./node_modules/gulp/bin/gulp.js test; ./node_modules/gulp/bin/gulp.js protractor",
-    "prestart": "npm install; ./node_modules/bower/bin/bower install",
-    "start": " ./node_modules/gulp/bin/gulp.js",
-    "prepublish": "./node_modules/gulp/bin/gulp.js"
+    "pretest": "npm install; bower install",
+    "test": "gulp test; gulp protractor",
+    "prestart": "npm install; bower install",
+    "start": "gulp",
+    "prepublish": "npm test"
   },
   "main": "nodejs/index.js",
   "dependencies": {},
