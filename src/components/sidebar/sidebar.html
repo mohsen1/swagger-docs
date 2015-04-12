@@ -1,15 +1,15 @@
 <div ng-controller="SidebarCtrl" class="side-bar">
   <div class="filter">
-    <input type="text" placeholder="Filter paths">
+    <input type="text" placeholder="Filter paths" ng-model="pathsFilter">
   </div>
   <a class="all-paths path-name-link" ui-sref="home.paths({pathName: null})">
     All Paths
   </a>
   <a
     ng-repeat="(pathName, path) in swagger.paths"
+    ng-if="showPath(pathName, pathsFilter)"
     class="path-name-link"
-    ui-sref="home.paths({pathName: encodeURIComponent(pathName)})"
-  >
+    ui-sref="home.paths({pathName: encodeURIComponent(pathName)})">
     <h5>{{pathName}}</h5>
   </a>
 </div>
