@@ -3,7 +3,6 @@
   "version": "0.0.0",
   "repository": "https://github.com/mohsen1/swagger-docs",
   "scripts": {
-    "pretest": "npm install; bower install",
     "test": "gulp test; gulp protractor",
     "prestart": "npm install; bower install",
     "start": "gulp",
