@@ -13,6 +13,7 @@ SwaggerDocs.controller('SidebarCtrl', function SidebarCtrl($scope) {
     // Remove whitespace from beginning and end of the filter
     filter = filter.trim();
 
+    // TODO: use edit distance or something more interesting
     return pathName.indexOf(filter) > -1;
   };
 });
