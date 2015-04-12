@@ -4,4 +4,19 @@
   a.path-name-link {
     font-family: monospace;
   }
+
+  .filter {
+    input {
+      display: block;
+      width: 100%;
+      padding: .3em;
+      margin: 0 0 20px 0;
+      border: 1px solid #eee;
+
+      &:focus {
+        border-color: @theme-header-bg-color;
+        outline: none;
+      }
+    }
+  }
 }
