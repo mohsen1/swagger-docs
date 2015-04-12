@@ -2,7 +2,7 @@
 
 > [Swagger](http://swagger.io) API Documentations Viewer
 
-![Doc? Duck?](./docs/duck.jpg)
+[![Build Status](https://travis-ci.org/mohsen1/swagger-docs.svg?branch=master)](https://travis-ci.org/mohsen1/swagger-docs)
 
 ### Warning! Under development
 This project is under development and not ready for production use.
