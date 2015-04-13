@@ -17,7 +17,7 @@ describe('highlight directive', function () {
   }));
 
   beforeEach(function(){
-    spyOn(HTMLDivElement.prototype, 'scrollIntoViewIfNeeded');
+    spyOn(jQuery.fn, 'scrollIntoViewIfNeeded');
   });
 
   describe('when expression is true', function(){
@@ -32,7 +32,7 @@ describe('highlight directive', function () {
     });
 
     it('should call scrollIntoViewIfNeeded method on the element', function() {
-      expect(element.get(0).scrollIntoViewIfNeeded).toHaveBeenCalled();
+      expect(element.scrollIntoViewIfNeeded).toHaveBeenCalled();
     });
   });
 
@@ -48,7 +48,7 @@ describe('highlight directive', function () {
     });
 
     it('should not call scrollIntoViewIfNeeded method on the element', function() {
-      expect(element.get(0).scrollIntoViewIfNeeded).not.toHaveBeenCalled();
+      expect(element.scrollIntoViewIfNeeded).not.toHaveBeenCalled();
     });
   });
 
@@ -65,7 +65,7 @@ describe('highlight directive', function () {
     });
 
     it('should call scrollIntoViewIfNeeded method on the element', function() {
-      expect(element.get(0).scrollIntoViewIfNeeded).toHaveBeenCalled();
+      expect(element.scrollIntoViewIfNeeded).toHaveBeenCalled();
     });
   });
 
@@ -82,7 +82,7 @@ describe('highlight directive', function () {
     });
 
     it('should not call scrollIntoViewIfNeeded method on the element', function() {
-      expect(element.get(0).scrollIntoViewIfNeeded).not.toHaveBeenCalled();
+      expect(element.scrollIntoViewIfNeeded).not.toHaveBeenCalled();
     });
   });
 

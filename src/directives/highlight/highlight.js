@@ -29,7 +29,7 @@ SwaggerDocs.directive('highlight', function highlight($parse) {
           (angular.isString(newValue) && $parse(newValue)(scope))) {
 
           angular.element('*').removeClass('swagger-docs-highlighted');
-          element.get(0).scrollIntoViewIfNeeded(true);
+          element.scrollIntoViewIfNeeded(true);
           element.addClass('swagger-docs-highlighted');
         }
       }

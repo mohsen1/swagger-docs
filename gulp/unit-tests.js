@@ -39,3 +39,4 @@ gulp.task('test', ['browserify'], function (done) {
 gulp.task('test:auto', ['browserify'], function (done) {
   runTests(false /* singleRun */, done);
 });
+gulp.task('test:watch', ['test:auto']); // synonym task
