@@ -17,7 +17,7 @@ describe('highlight directive', function () {
   }));
 
   beforeEach(function(){
-    spyOn(jQuery.fn, 'scrollIntoViewIfNeeded');
+    spyOn(window.jQuery.fn, 'scrollIntoViewIfNeeded');
   });
 
   describe('when expression is true', function(){
