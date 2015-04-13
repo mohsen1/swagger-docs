@@ -44,6 +44,7 @@
     "http-proxy": "~1.7.0",
     "jasmine": "^2.2.1",
     "jasmine-reporters": "^2.0.4",
+    "jshint": "^2.7.0",
     "jshint-stylish": "~1.0.0",
     "karma-chrome-launcher": "^0.1.7",
     "karma-firefox-launcher": "^0.1.4",

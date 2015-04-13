@@ -18,14 +18,14 @@ function runTests (singleRun) {
 
   var testFiles = bowerDeps.js.concat([
     paths.tmp + '/serve/{app,components,directives,services}/**/*.js',
-    paths.src + '/{app,components,directives,services}/**/*.spec.js',
-    paths.src + '/{app,components,directives,services}/**/*.mock.js'
+    paths.tmp + '/test-6to5/{app,components,directives,services}/**/*.spec.js',
+    paths.tmp + '/test-6to5/{app,components,directives,services}/**/*.mock.js'
   ]);
 
   gulp.src(testFiles)
     .pipe($.karma({
       configFile: 'karma.conf.js',
-      action: (singleRun)? 'run': 'watch'
+      action: singleRun ? 'run': 'watch'
     }))
     .on('error', function (err) {
       // Make sure failed tests cause gulp to exit non-zero

@@ -1,61 +1,70 @@
 'use strict';
 
-describe('OperationCtrl', function () {
+describe('OperationCtrl', ()=> {
   var $controller;
+  var $stateParams;
 
   // Load the SwaggerDocs module, which contains the directive
   beforeEach(module('SwaggerDocs'));
 
-  beforeEach(inject(function(_$controller_){
+  beforeEach(inject((_$controller_, _$stateParams_) => {
     $controller = _$controller_;
+    $stateParams = _$stateParams_;
   }));
 
-  describe('$scope.getResponseCodeGroup', function () {
-    it('$scope.getResponseCodeGroup should return correct response codes', function(){
+  describe('$scope.getResponseCodeGroup', ()=> {
+    it('$scope.getResponseCodeGroup should return correct response codes', ()=> {
       var $scope = {};
-      var controller = $controller('OperationCtrl', {$scope: $scope});
+      $controller('OperationCtrl', {$scope: $scope});
 
-      expect($scope.getResponseCodeGroup('200')).toBe(200);
-      expect($scope.getResponseCodeGroup('201')).toBe(200);
-      expect($scope.getResponseCodeGroup('400')).toBe(400);
-      expect($scope.getResponseCodeGroup('404')).toBe(400);
+      expect($scope.getResponseCodeGroup('200')).toBe(2);
+      expect($scope.getResponseCodeGroup('201')).toBe(2);
+      expect($scope.getResponseCodeGroup('400')).toBe(4);
+      expect($scope.getResponseCodeGroup('404')).toBe(4);
     });
   });
 
-  describe('$scope.shouldHighlight', function () {
-    var shouldHighlight,
-      $scope;
+  describe('$scope.shouldHighlight', ()=> {
+    let shouldHighlight;
+    let $scope;
 
-    beforeEach(function () {
-      scope = {};
-      var controller = $controller('OperationCtrl', {$scope: $scope});
+    beforeEach( ()=> {
+      $scope = {};
+      $stateParams.resp
+      $controller('OperationCtrl', {$scope: $scope});
       shouldHighlight = $scope.shouldHighlight;
     });
 
-    it('should return false if stateParams.parameterName is set', function () {
-      $scope.parameterName = 'something';
-      $scope.operationName = 'get';
+    // Flush out states in stateParams
+    afterEach( ()=> {
+      $stateParams.operationName = null;
+      $stateParams.responseCode = null;
+      $stateParams.parameterName = null;
+    });
+
+    it('should return false if stateParams.parameterName is set', ()=> {
+      $stateParams.parameterName = 'something';
+      $stateParams.operationName = 'get';
 
       expect(shouldHighlight('get')).toBe(false);
     });
 
-    it('should return false if stateParams.responseCode is set', function () {
-      $scope.responseCode = '200';
-      $scope.operationName = 'get';
+    it('should return false if stateParams.responseCode is set', ()=> {
+      $stateParams.responseCode = '200';
+      $stateParams.operationName = 'get';
 
       expect(shouldHighlight('get')).toBe(false);
     });
 
-    it('should return false if operationName is different', function () {
-      $scope.responseCode = '200';
-      $scope.operationName = 'get';
+    it('should return false if operationName is different', ()=> {
+      $stateParams.responseCode = '200';
+      $stateParams.operationName = 'get';
 
       expect(shouldHighlight('post')).toBe(false);
     });
 
-    it('should return true if operationName is the same', function () {
-      $scope.responseCode = '200';
-      $scope.operationName = 'get';
+    it('should return true if operationName is the same', ()=> {
+      $stateParams.operationName = 'get';
 
       expect(shouldHighlight('get')).toBe(true);
     });
