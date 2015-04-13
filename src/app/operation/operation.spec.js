@@ -30,7 +30,6 @@ describe('OperationCtrl', ()=> {
 
     beforeEach( ()=> {
       $scope = {};
-      $stateParams.resp
       $controller('OperationCtrl', {$scope: $scope});
       shouldHighlight = $scope.shouldHighlight;
     });
