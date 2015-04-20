@@ -1,6 +1,7 @@
+'use strict';
+
 var connect = require('connect');
 var swaggerDocs = require('../..');
-var fs = require('fs');
 
 var swagger = require('./swagger.json');
 
