@@ -35,9 +35,9 @@ If you are using Express or any other Connect based server, there is a connect m
 
 ```js
 var SwaggerDocs = require('swagger-docs');
-var myAPISwagger = fs.readFileSync('path/to/swagger.json');
+var swagger = require('path/to/swagger.json');
 
-app.get('/api-documentations/*', SwaggerDocs.middleWare(myAPISwagger));
+app.use(SwaggerDocs.middleWare(swagger, {path: '/api-documentations'}));
 ```
 
 ### Configuring Swagger Docs
