@@ -43,8 +43,12 @@ gulp.task('html', ['inject', 'partials'], function () {
     .pipe(assets = $.useref.assets())
     .pipe($.rev())
     .pipe(jsFilter)
-    .pipe($.ngAnnotate({remove: true, add: true, single_quotes: true}))
-    .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
+
+    // Disable minification of the code for now because of ui.router issue with
+    // minification
+    // see: http://forum.ionicframework.com/t/ionic-an-minification-issue/7956
+    // .pipe($.ngAnnotate({remove: true, add: true, single_quotes: true}))
+    // .pipe($.uglify({preserveComments: $.uglifySaveLicense}))
     .pipe(jsFilter.restore())
     .pipe(cssFilter)
     .pipe($.replace('../bootstrap/fonts', 'fonts'))

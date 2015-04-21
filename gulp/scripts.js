@@ -33,7 +33,7 @@ gulp.task('test-scripts', function () {
     .pipe($.size());
 });
 
-gulp.task('browserify', ['scripts', 'test-scripts'], function () {
+gulp.task('all-scripts', ['scripts', 'test-scripts'], function () {
   return gulp.src(paths.tmp + '/6to5/{app,components,directives,services}/**/*.js', { /*read: false*/ })
     .pipe(gulp.dest(paths.tmp + '/serve/app'))
     .pipe($.size());
