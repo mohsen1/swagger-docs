@@ -48,15 +48,15 @@ describe('The main view', function() {
 
   describe('paths', function(){
     it('should render all paths', function(){
-      expect($('.sidebar .all-paths').getText()).toContain('All Paths');
+      expect($('.side-bar .all-paths').getText()).toContain('All Paths');
     });
 
     it('"All Paths" should be a link', function(){
-      expect($('.sidebar a.all-paths').isPresent()).toBe(true);
+      expect($('.side-bar a.all-paths').isPresent()).toBe(true);
     });
 
     it('should render all other paths under "App Paths"', function() {
-      expect($$('.sidebar .path-name-link').count()).toBe(12);
+      expect($$('.side-bar .path-name-link:not(.all-paths)').count()).toBe(12);
     });
   });
 
