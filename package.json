@@ -1,6 +1,6 @@
 {
   "name": "swagger-docs",
-  "version": "0.0.0-alpha1",
+  "version": "0.0.0-alpha2",
   "repository": "https://github.com/mohsen1/swagger-docs",
   "scripts": {
     "pretest": "jshint .",
@@ -60,5 +60,11 @@
   },
   "engines": {
     "node": ">=0.10.0"
-  }
+  },
+  "files": [
+    "dist/",
+    "nodejs/",
+    "docs/",
+    "index.html"
+  ]
 }
