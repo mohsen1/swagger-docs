@@ -83,8 +83,8 @@ gulp.task('fonts', function () {
 gulp.task('misc', function () {
   return gulp.src([
       paths.src + '/**/*.ico',
-      paths.src + 'swagger.yaml',
-      paths.src + 'config.json'
+      paths.src + '/swagger.yaml',
+      paths.src + '/config.json'
     ])
     .pipe(gulp.dest(paths.dist + '/'));
 });
