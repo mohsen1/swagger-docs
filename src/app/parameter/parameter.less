@@ -1,14 +1,23 @@
 .parameter {
-  padding: 0.5em;
+  padding: 1em 0.5em;
+
+  // + .parameter {
+    border-bottom: 1px solid @theme-subtle;
+  // }
 
   h5 {
-    font-family: monospace;
     font-size: 16px;
     color: black;
+    font-weight: normal;
   }
 
-  .parameter-name:hover {
-    text-decoration: underline;
+  h5.parameter-name .name {
+    font-weight: bold;
+    font-family: monospace;
+
+    &:hover {
+      text-decoration: underline;
+    }
   }
 
   .operation-name {
